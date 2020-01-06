@@ -21,7 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let stateMachine = StateMachine(state: .start)
-        let contentView = ContentView(viewModel: ContentViewModel(stateMachine: stateMachine))
+        let imageService = ImageService(session: .shared)
+        let contentViewModel = ContentViewModel(stateMachine: stateMachine, imageService: imageService)
+        let contentView = ContentView(viewModel: contentViewModel)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

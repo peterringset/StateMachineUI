@@ -41,6 +41,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: ContentViewModel(stateMachine: StateMachine(state: .start)))
+        ContentView(viewModel: ContentViewModel(stateMachine: StateMachine(state: .start), imageService: ImageService(session: .shared)))
     }
 }

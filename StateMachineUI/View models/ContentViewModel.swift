@@ -12,17 +12,24 @@ import Foundation
 class ContentViewModel: ObservableObject {
     
     private let stateMachine: StateMachine
+    private let imageService: ImageService
+    
     private var stateCancellable: AnyCancellable?
+    private var searchCancelleble: AnyCancellable?
     
     @Published var searchText: String = ""
-    @Published var state: StateMachine.State
+    @Published var state: StateMachine.State {
+        didSet { enterState(state) }
+    }
     
     var showSearchCancelButton: Bool {
         return stateMachine.state == .searching
     }
     
-    init(stateMachine: StateMachine) {
+    init(stateMachine: StateMachine, imageService: ImageService) {
         self.stateMachine = stateMachine
+        self.imageService = imageService
+        
         self.state = stateMachine.state
         
         self.stateCancellable = stateMachine.statePublisher.sink { state in
@@ -39,6 +46,35 @@ class ContentViewModel: ObservableObject {
             }
         }()
         stateMachine.tryEvent(event)
+    }
+    
+}
+
+// MARK: - Search
+
+extension ContentViewModel {
+    
+    func search() {
+        searchCancelleble = imageService.search(text: searchText)?.sink(receiveCompletion: { completion in
+            switch completion {
+            case .finished: break
+            case .failure(let error): print("error \(error.localizedDescription)") // TODO
+            }
+        }, receiveValue: { items in
+            print("items \(items.count)") // TODO
+        })
+    }
+    
+}
+
+// MARK: - State changes
+
+extension ContentViewModel {
+
+    func enterState(_ state: StateMachine.State) {
+        if case .loading = state {
+            search()
+        }
     }
     
 }
