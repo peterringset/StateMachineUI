@@ -11,6 +11,7 @@
 		4501CDC023C3681700BA4D6C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4501CDBF23C3681700BA4D6C /* ActivityIndicator.swift */; };
 		4501CDC623C3688900BA4D6C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4501CDC523C3688900BA4D6C /* ImageService.swift */; };
 		4501CDC923C368D200BA4D6C /* PixabayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4501CDC823C368D200BA4D6C /* PixabayItem.swift */; };
+		4501CDCB23C369CA00BA4D6C /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4501CDCA23C369CA00BA4D6C /* StateMachine.swift */; };
 		4546869623C366B400E14954 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546869523C366B400E14954 /* AppDelegate.swift */; };
 		4546869823C366B400E14954 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546869723C366B400E14954 /* SceneDelegate.swift */; };
 		4546869A23C366B400E14954 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546869923C366B400E14954 /* ContentView.swift */; };
@@ -35,6 +36,7 @@
 		4501CDBF23C3681700BA4D6C /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		4501CDC523C3688900BA4D6C /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		4501CDC823C368D200BA4D6C /* PixabayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixabayItem.swift; sourceTree = "<group>"; };
+		4501CDCA23C369CA00BA4D6C /* StateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
 		4546869223C366B400E14954 /* StateMachineUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StateMachineUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4546869523C366B400E14954 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4546869723C366B400E14954 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				4546869D23C366B600E14954 /* Preview Content */,
 				4546869723C366B400E14954 /* SceneDelegate.swift */,
 				4501CDC423C3687400BA4D6C /* Services */,
+				4501CDCA23C369CA00BA4D6C /* StateMachine.swift */,
 				4501CDBB23C3678100BA4D6C /* Views */,
 			);
 			path = StateMachineUI;
@@ -255,6 +258,7 @@
 				4546869623C366B400E14954 /* AppDelegate.swift in Sources */,
 				4501CDC023C3681700BA4D6C /* ActivityIndicator.swift in Sources */,
 				4501CDBE23C367D600BA4D6C /* SearchBar.swift in Sources */,
+				4501CDCB23C369CA00BA4D6C /* StateMachine.swift in Sources */,
 				4546869823C366B400E14954 /* SceneDelegate.swift in Sources */,
 				4501CDC923C368D200BA4D6C /* PixabayItem.swift in Sources */,
 				4546869A23C366B400E14954 /* ContentView.swift in Sources */,
