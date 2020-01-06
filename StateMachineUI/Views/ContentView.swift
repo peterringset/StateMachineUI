@@ -31,8 +31,8 @@ struct ContentView: View {
     
     private var content: some View {
         switch viewModel.state {
-        case .start: return AnyView(EmptyView())
-        case .searching: return AnyView(EmptyView())
+        case .start: return AnyView(StartView())
+        case .searching: return AnyView(SearchingView())
         }
     }
     
