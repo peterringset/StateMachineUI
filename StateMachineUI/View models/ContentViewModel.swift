@@ -31,6 +31,9 @@ class ContentViewModel: ObservableObject {
     }
     
     func searchStatusChanged(_ value: SearchBar.Status) {
+        if case .searching = value {
+            stateMachine.tryEvent(.startSearch)
+        }
     }
     
 }
