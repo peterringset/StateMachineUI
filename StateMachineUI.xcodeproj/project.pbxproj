@@ -19,6 +19,7 @@
 		4546869F23C366B600E14954 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4546869E23C366B600E14954 /* Preview Assets.xcassets */; };
 		454686A223C366B600E14954 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 454686A023C366B600E14954 /* LaunchScreen.storyboard */; };
 		454686AD23C366B600E14954 /* StateMachineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454686AC23C366B600E14954 /* StateMachineUITests.swift */; };
+		45DE733623C36B97007AB404 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE733523C36B97007AB404 /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		454686A823C366B600E14954 /* StateMachineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StateMachineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		454686AC23C366B600E14954 /* StateMachineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachineUITests.swift; sourceTree = "<group>"; };
 		454686AE23C366B600E14954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45DE733523C36B97007AB404 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				4546869723C366B400E14954 /* SceneDelegate.swift */,
 				4501CDC423C3687400BA4D6C /* Services */,
 				4501CDCA23C369CA00BA4D6C /* StateMachine.swift */,
+				45DE733423C36B85007AB404 /* View models */,
 				4501CDBB23C3678100BA4D6C /* Views */,
 			);
 			path = StateMachineUI;
@@ -152,6 +155,14 @@
 				454686AE23C366B600E14954 /* Info.plist */,
 			);
 			path = StateMachineUITests;
+			sourceTree = "<group>";
+		};
+		45DE733423C36B85007AB404 /* View models */ = {
+			isa = PBXGroup;
+			children = (
+				45DE733523C36B97007AB404 /* ContentViewModel.swift */,
+			);
+			path = "View models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +271,7 @@
 				4501CDBE23C367D600BA4D6C /* SearchBar.swift in Sources */,
 				4501CDCB23C369CA00BA4D6C /* StateMachine.swift in Sources */,
 				4546869823C366B400E14954 /* SceneDelegate.swift in Sources */,
+				45DE733623C36B97007AB404 /* ContentViewModel.swift in Sources */,
 				4501CDC923C368D200BA4D6C /* PixabayItem.swift in Sources */,
 				4546869A23C366B400E14954 /* ContentView.swift in Sources */,
 				4501CDC623C3688900BA4D6C /* ImageService.swift in Sources */,
