@@ -33,6 +33,7 @@ struct ContentView: View {
         switch viewModel.state {
         case .start: return AnyView(StartView())
         case .searching: return AnyView(SearchingView())
+        case .loading: return AnyView(LoadingView())
         }
     }
     

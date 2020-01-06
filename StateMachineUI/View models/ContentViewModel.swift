@@ -31,11 +31,14 @@ class ContentViewModel: ObservableObject {
     }
     
     func searchStatusChanged(_ value: SearchBar.Status) {
-        if case .searching = value {
-            stateMachine.tryEvent(.startSearch)
-        } else if case .notSearching = value {
-            stateMachine.tryEvent(.cancel)
-        }
+        let event: StateMachine.Event = {
+            switch value {
+            case .searching: return .startSearch
+            case .searched: return .search
+            case .notSearching: return .cancel
+            }
+        }()
+        stateMachine.tryEvent(event)
     }
     
 }

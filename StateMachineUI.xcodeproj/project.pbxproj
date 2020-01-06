@@ -22,6 +22,7 @@
 		45DE733623C36B97007AB404 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE733523C36B97007AB404 /* ContentViewModel.swift */; };
 		45DE733923C36CF6007AB404 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE733823C36CF6007AB404 /* StartView.swift */; };
 		45DE733B23C36D28007AB404 /* SearchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE733A23C36D28007AB404 /* SearchingView.swift */; };
+		45DE733D23C36F7F007AB404 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE733C23C36F7F007AB404 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		45DE733523C36B97007AB404 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		45DE733823C36CF6007AB404 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		45DE733A23C36D28007AB404 /* SearchingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingView.swift; sourceTree = "<group>"; };
+		45DE733C23C36F7F007AB404 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +79,9 @@
 		4501CDBB23C3678100BA4D6C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				45DE733723C36CE6007AB404 /* State views */,
 				4501CDBC23C367C400BA4D6C /* Components */,
 				4546869923C366B400E14954 /* ContentView.swift */,
+				45DE733723C36CE6007AB404 /* State views */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,8 +175,9 @@
 		45DE733723C36CE6007AB404 /* State views */ = {
 			isa = PBXGroup;
 			children = (
-				45DE733823C36CF6007AB404 /* StartView.swift */,
+				45DE733C23C36F7F007AB404 /* LoadingView.swift */,
 				45DE733A23C36D28007AB404 /* SearchingView.swift */,
+				45DE733823C36CF6007AB404 /* StartView.swift */,
 			);
 			path = "State views";
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				4501CDC023C3681700BA4D6C /* ActivityIndicator.swift in Sources */,
 				45DE733B23C36D28007AB404 /* SearchingView.swift in Sources */,
 				4501CDBE23C367D600BA4D6C /* SearchBar.swift in Sources */,
+				45DE733D23C36F7F007AB404 /* LoadingView.swift in Sources */,
 				4501CDCB23C369CA00BA4D6C /* StateMachine.swift in Sources */,
 				4546869823C366B400E14954 /* SceneDelegate.swift in Sources */,
 				45DE733623C36B97007AB404 /* ContentViewModel.swift in Sources */,

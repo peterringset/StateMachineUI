@@ -14,11 +14,13 @@ class StateMachine {
     enum State {
         case start
         case searching
+        case loading
     }
     
     enum Event {
         case startSearch
         case cancel
+        case search
     }
     
     private(set) var state: State {
@@ -51,13 +53,18 @@ extension StateMachine {
     private func nextState(for event: Event) -> State? {
         switch state {
         case .start:
-            if case .startSearch = event {
-                return .searching
+            switch event {
+            case .startSearch: return .searching
+            case .cancel, .search: return nil
             }
         case .searching:
-            if case .cancel = event {
-                return .start
+            switch event {
+            case .search: return .loading
+            case .startSearch: return nil
+            case .cancel: return .start
             }
+        case .loading:
+            break
         }
         
         return nil
