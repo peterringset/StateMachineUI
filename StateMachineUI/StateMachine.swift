@@ -18,6 +18,7 @@ class StateMachine {
     
     enum Event {
         case startSearch
+        case cancel
     }
     
     private(set) var state: State {
@@ -54,7 +55,9 @@ extension StateMachine {
                 return .searching
             }
         case .searching:
-            break
+            if case .cancel = event {
+                return .start
+            }
         }
         
         return nil
