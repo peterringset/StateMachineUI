@@ -58,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4501CDBB23C3678100BA4D6C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4546869923C366B400E14954 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4546868923C366B400E14954 = {
 			isa = PBXGroup;
 			children = (
@@ -80,12 +88,12 @@
 			isa = PBXGroup;
 			children = (
 				4546869523C366B400E14954 /* AppDelegate.swift */,
-				4546869723C366B400E14954 /* SceneDelegate.swift */,
-				4546869923C366B400E14954 /* ContentView.swift */,
 				4546869B23C366B600E14954 /* Assets.xcassets */,
-				454686A023C366B600E14954 /* LaunchScreen.storyboard */,
 				454686A323C366B600E14954 /* Info.plist */,
+				454686A023C366B600E14954 /* LaunchScreen.storyboard */,
 				4546869D23C366B600E14954 /* Preview Content */,
+				4546869723C366B400E14954 /* SceneDelegate.swift */,
+				4501CDBB23C3678100BA4D6C /* Views */,
 			);
 			path = StateMachineUI;
 			sourceTree = "<group>";
