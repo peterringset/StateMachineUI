@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4501CDBE23C367D600BA4D6C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4501CDBD23C367D600BA4D6C /* SearchBar.swift */; };
 		4546869623C366B400E14954 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546869523C366B400E14954 /* AppDelegate.swift */; };
 		4546869823C366B400E14954 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546869723C366B400E14954 /* SceneDelegate.swift */; };
 		4546869A23C366B400E14954 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546869923C366B400E14954 /* ContentView.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4501CDBD23C367D600BA4D6C /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		4546869223C366B400E14954 /* StateMachineUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StateMachineUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4546869523C366B400E14954 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4546869723C366B400E14954 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,9 +63,18 @@
 		4501CDBB23C3678100BA4D6C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4501CDBC23C367C400BA4D6C /* Components */,
 				4546869923C366B400E14954 /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4501CDBC23C367C400BA4D6C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4501CDBD23C367D600BA4D6C /* SearchBar.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		4546868923C366B400E14954 = {
@@ -217,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4546869623C366B400E14954 /* AppDelegate.swift in Sources */,
+				4501CDBE23C367D600BA4D6C /* SearchBar.swift in Sources */,
 				4546869823C366B400E14954 /* SceneDelegate.swift in Sources */,
 				4546869A23C366B400E14954 /* ContentView.swift in Sources */,
 			);
