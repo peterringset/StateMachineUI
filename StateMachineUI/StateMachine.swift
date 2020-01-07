@@ -75,12 +75,16 @@ extension StateMachine {
             case .failure: return .error
             }
         case .searchResults:
-            break
+            switch event {
+            case .startSearch: return .searching
+            case .cancel, .search, .success, .failure: return nil
+            }
         case .error:
-            break
+            switch event {
+            case .startSearch: return .searching
+            case .cancel, .search, .success, .failure: return nil
+            }
         }
-        
-        return nil
     }
     
 }
