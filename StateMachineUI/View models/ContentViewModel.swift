@@ -63,7 +63,7 @@ extension ContentViewModel {
         searchCancelleble = imageService.search(text: searchText)?.sink(receiveCompletion: { completion in
             switch completion {
             case .finished: break
-            case .failure(let error): print("error \(error.localizedDescription)") // TODO
+            case .failure: self.stateMachine.tryEvent(.failure)
             }
         }, receiveValue: { items in
             self.searchItems = items

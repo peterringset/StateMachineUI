@@ -35,6 +35,7 @@ struct ContentView: View {
         case .searching: return AnyView(SearchingView())
         case .loading: return AnyView(LoadingView())
         case .searchResults: return AnyView(SearchResultsView(viewModel: viewModel.createSearchResultsViewModel()))
+        case .error: return AnyView(ErrorView())
         }
     }
     
