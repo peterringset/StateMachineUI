@@ -15,22 +15,33 @@ struct SearchResultsView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            List {
-                ForEach(self.dataCollection(items: self.viewModel.items, size: geometry.size)) { rowModel in
-                    HStack(spacing: 0) {
-                        ForEach(rowModel.items) { item in
-                            URLImage(item.url,
-                                processors: [
-                                    Resize(size: self.size(for: geometry), scale: UIScreen.main.scale)
-                                ],
-                                placeholder: Image(systemName: "photo"),
-                                content: { $0.image.resizable().aspectRatio(contentMode: .fit).clipped() }
-                            ).frame(size: self.size(for: geometry), alignment: .center)
-                        }
-                    }.listRowInsets(EdgeInsets())
+            if !self.viewModel.items.isEmpty {
+                List {
+                    ForEach(self.dataCollection(items: self.viewModel.items, size: geometry.size)) { rowModel in
+                        HStack(spacing: 0) {
+                            ForEach(rowModel.items) { item in
+                                URLImage(item.url,
+                                    processors: [
+                                        Resize(size: self.size(for: geometry), scale: UIScreen.main.scale)
+                                    ],
+                                    placeholder: Image(systemName: "photo"),
+                                    content: { $0.image.resizable().aspectRatio(contentMode: .fit).clipped() }
+                                ).frame(size: self.size(for: geometry), alignment: .center)
+                            }
+                        }.listRowInsets(EdgeInsets())
+                    }
+                }.onAppear {
+                    UITableView.appearance().separatorStyle = .none
                 }
-            }.onAppear {
-                UITableView.appearance().separatorStyle = .none
+            } else {
+                VStack(alignment: .center) {
+                    Spacer().frame(height: 20)
+                    HStack {
+                        Text("No Results")
+                        Image(systemName: "exclamationmark.triangle")
+                    }.font(.headline).frame(width: geometry.size.width)
+                    Text("Try refining your search term to get more results.").font(.body)
+                }
             }
         }
     }
@@ -82,12 +93,16 @@ private struct RowModel: Identifiable {
 
 struct SearchResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchResultsView(viewModel: SearchResultsViewModel(items: [
-            PixabayItem(id: 1, url: URL(string: "http://eggsdesign.com")!),
-            PixabayItem(id: 2, url: URL(string: "http://eggsdesign.com")!),
-            PixabayItem(id: 3, url: URL(string: "http://eggsdesign.com")!),
-            PixabayItem(id: 4, url: URL(string: "http://eggsdesign.com")!)
-        ])).previewLayout(.fixed(width: 414, height: 300))
+        Group {
+            SearchResultsView(viewModel: SearchResultsViewModel(items: [
+                PixabayItem(id: 1, url: URL(string: "http://eggsdesign.com")!),
+                PixabayItem(id: 2, url: URL(string: "http://eggsdesign.com")!),
+                PixabayItem(id: 3, url: URL(string: "http://eggsdesign.com")!),
+                PixabayItem(id: 4, url: URL(string: "http://eggsdesign.com")!)
+            ])).previewLayout(.fixed(width: 414, height: 300))
+            
+            SearchResultsView(viewModel: SearchResultsViewModel(items: []))
+                .previewLayout(.fixed(width: 414, height: 200))
+        }
     }
 }
-
