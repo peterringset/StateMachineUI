@@ -19,8 +19,10 @@ class ContentViewModel: ObservableObject {
     
     @Published var searchText: String = ""
     @Published var state: StateMachine.State {
+        willSet { leaveState(state) }
         didSet { enterState(state) }
     }
+    @Published var isSearching: Bool = false
     private var searchItems: [PixabayItem] = []
     
     var showSearchCancelButton: Bool {
@@ -59,7 +61,12 @@ class ContentViewModel: ObservableObject {
 
 extension ContentViewModel {
     
-    func search() {
+    func search(_ text: String) {
+        searchText = text
+        stateMachine.tryEvent(.search)
+    }
+    
+    private func search() {
         searchCancelleble = imageService.search(text: searchText)?.sink(receiveCompletion: { completion in
             switch completion {
             case .finished: break
@@ -77,7 +84,16 @@ extension ContentViewModel {
 
 extension ContentViewModel {
 
+    func leaveState(_ state: StateMachine.State) {
+        if case .searching = state {
+            isSearching = false
+        }
+    }
+    
     func enterState(_ state: StateMachine.State) {
+        if case .searching = state {
+            isSearching = true
+        }
         if case .loading = state {
             search()
         }

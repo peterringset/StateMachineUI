@@ -17,6 +17,7 @@ struct ContentView: View {
             VStack(spacing: 0) {
                 SearchBar(
                     text: $viewModel.searchText,
+                    isEditing: $viewModel.isSearching,
                     showsCancelButton: viewModel.showSearchCancelButton,
                     searchingChanged: viewModel.searchStatusChanged
                 )
@@ -32,7 +33,7 @@ struct ContentView: View {
     private var content: some View {
         switch viewModel.state {
         case .start: return AnyView(StartView())
-        case .searching: return AnyView(SearchingView())
+        case .searching: return AnyView(SearchingView(action: { self.viewModel.search($0) }))
         case .loading: return AnyView(LoadingView())
         case .searchResults: return AnyView(SearchResultsView(viewModel: viewModel.createSearchResultsViewModel()))
         case .error: return AnyView(ErrorView())

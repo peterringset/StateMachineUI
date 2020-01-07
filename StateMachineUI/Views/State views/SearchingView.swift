@@ -9,27 +9,34 @@
 import SwiftUI
 
 struct SearchingView: View {
+    
+    let action: (String) -> Void
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Recent searches").font(.system(.headline))
             
             VStack(alignment: .leading) {
                 Divider()
-                Button(action: { }) { () -> Text in Text("Dogs") }
+                textButton("Dogs")
                 Divider()
-                Button(action: { }) { () -> Text in Text("Ponies") }
+                textButton("Ponies")
                 Divider()
-                Button(action: { }) { () -> Text in Text("Unicorns") }
+                textButton("Unicorns")
                 Divider()
-                Button(action: { }) { () -> Text in Text("Cats") }
+                textButton("Cats")
                 Divider()
             }
         }.padding()
+    }
+    
+    private func textButton(_ text: String) -> Button<Text> {
+        return Button(action: { self.action(text) }, label: { Text(text) })
     }
 }
 
 struct SearchingView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchingView().previewLayout(.sizeThatFits)
+        SearchingView(action: { _ in }).previewLayout(.sizeThatFits)
     }
 }

@@ -15,6 +15,7 @@ struct SearchBar: UIViewRepresentable {
     }
     
     @Binding var text: String
+    @Binding var isEditing: Bool
     let showsCancelButton: Bool
     let searchingChanged: (Status) -> Void
     
@@ -66,13 +67,18 @@ struct SearchBar: UIViewRepresentable {
     func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchBar>) {
         uiView.text = text
         uiView.showsCancelButton = showsCancelButton
+        if isEditing && !uiView.isFirstResponder {
+            uiView.becomeFirstResponder()
+        } else if !isEditing && uiView.isFirstResponder {
+            uiView.resignFirstResponder()
+        }
     }
     
 }
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar(text: .constant(""), showsCancelButton: false, searchingChanged: { _ in })
+        SearchBar(text: .constant(""), isEditing: .constant(false), showsCancelButton: false, searchingChanged: { _ in })
             .previewLayout(.sizeThatFits)
     }
 }
