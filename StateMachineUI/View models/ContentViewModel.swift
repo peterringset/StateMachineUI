@@ -21,6 +21,7 @@ class ContentViewModel: ObservableObject {
     @Published var state: StateMachine.State {
         didSet { enterState(state) }
     }
+    private var searchItems: [PixabayItem] = []
     
     var showSearchCancelButton: Bool {
         return stateMachine.state == .searching
@@ -48,6 +49,10 @@ class ContentViewModel: ObservableObject {
         stateMachine.tryEvent(event)
     }
     
+    func createSearchResultsViewModel() -> SearchResultsViewModel {
+        return SearchResultsViewModel(items: searchItems)
+    }
+    
 }
 
 // MARK: - Search
@@ -61,7 +66,8 @@ extension ContentViewModel {
             case .failure(let error): print("error \(error.localizedDescription)") // TODO
             }
         }, receiveValue: { items in
-            print("items \(items.count)") // TODO
+            self.searchItems = items
+            self.stateMachine.tryEvent(.success)
         })
     }
     

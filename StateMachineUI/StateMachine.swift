@@ -15,12 +15,14 @@ class StateMachine {
         case start
         case searching
         case loading
+        case searchResults
     }
     
     enum Event {
         case startSearch
         case cancel
         case search
+        case success
     }
     
     private(set) var state: State {
@@ -55,15 +57,21 @@ extension StateMachine {
         case .start:
             switch event {
             case .startSearch: return .searching
-            case .cancel, .search: return nil
+            case .cancel, .search, .success: return nil
             }
         case .searching:
             switch event {
             case .search: return .loading
             case .startSearch: return nil
             case .cancel: return .start
+            case .success: return nil
             }
         case .loading:
+            switch event {
+            case .search, .cancel, .startSearch: return nil
+            case .success: return .searchResults
+            }
+        case .searchResults:
             break
         }
         

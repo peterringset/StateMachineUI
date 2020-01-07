@@ -17,3 +17,5 @@ struct PixabayItem: Decodable {
         case url = "webformatURL"
     }
 }
+
+extension PixabayItem: Identifiable { }
