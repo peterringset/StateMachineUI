@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct SearchResultsView: View {
     
@@ -18,7 +19,13 @@ struct SearchResultsView: View {
                 ForEach(self.dataCollection(items: self.viewModel.items, size: geometry.size)) { rowModel in
                     HStack(spacing: 0) {
                         ForEach(rowModel.items) { item in
-                            Image(systemName: "pencil.circle.fill").frame(size: self.size(for: geometry), alignment: .center)
+                            URLImage(item.url,
+                                processors: [
+                                    Resize(size: self.size(for: geometry), scale: UIScreen.main.scale)
+                                ],
+                                placeholder: Image(systemName: "photo"),
+                                content: { $0.image.resizable().aspectRatio(contentMode: .fit).clipped() }
+                            ).frame(size: self.size(for: geometry), alignment: .center)
                         }
                     }.listRowInsets(EdgeInsets())
                 }
